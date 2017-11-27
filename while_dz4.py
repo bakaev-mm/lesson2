@@ -1,13 +1,16 @@
 def ask_user(): 
     while True:
         user_say = input('Как дела?')
-        if user_say == 'Хорошо':
+        print(get_answer(user_say))
+        if user_say.lower() == 'пока':
             break
 
 
 
 
-def get_answer():
-    answer = {"Привет": "И тебе привет!", "Как дела": "Лучше всех", "Пока": "Увидимся"}
-    question = input()
-    print(answer[question].lower())
+def get_answer(question):
+    answer = {"привет": "И тебе привет!", "как дела": "Лучше всех", "пока": "Увидимся"}
+    question = question.lower()
+    return answer.get(question, 'Не понимаю')
+
+ask_user()
